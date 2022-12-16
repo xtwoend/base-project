@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Setting;
 
 use App\Models\Svg;
 use Illuminate\Http\Request;
@@ -47,7 +47,7 @@ class DesignController extends Controller
             'path' => $path
         ]);
 
-        return redirect()->route('design.workbench', $svg->id);
+        return redirect()->route('setting.design.workbench', $svg->id);
     }
 
     /**

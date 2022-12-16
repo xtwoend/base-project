@@ -17,8 +17,13 @@
         <div class="tab-pane" id="control-sidebar-settings-tab">
             <ul class="sidebar-menu" data-widget="tree">
                 <li>
-                    <a href="{{ route('design') }}">
+                    <a href="{{ route('setting.design') }}">
                         <i class="fa fa-flask"></i> <span>Design</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('setting.navigatin') }}">
+                        <i class="fa fa-clone"></i> <span>Navigation</span>
                     </a>
                 </li>
             </ul>

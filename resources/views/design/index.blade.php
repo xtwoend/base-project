@@ -6,7 +6,7 @@
         <div class="box-header with-border">
             <h3 class="box-title">Upload Design</h3>
         </div>
-        <form role="form" method="POST" action="{{ route('design.upload') }}" enctype="multipart/form-data">
+        <form role="form" method="POST" action="{{ route('setting.design.upload') }}" enctype="multipart/form-data">
             @csrf
             <div class="box-body">
                 <div class="form-group">
@@ -47,7 +47,7 @@
                     <td>{{ $row->id }}</td>
                     <td>{{ $row->name }}</td>
                     <td>
-                        <a href="{{ route('design.workbench', $row->id) }}" class="btn btn-xs btn-primary btn-flat">Show</a>
+                        <a href="{{ route('setting.design.workbench', $row->id) }}" class="btn btn-xs btn-primary btn-flat">Show</a>
                     </td>
                 </tr>
                 @endforeach
