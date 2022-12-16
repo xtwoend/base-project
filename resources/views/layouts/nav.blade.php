@@ -11,7 +11,6 @@
             @foreach(\App\Models\Navigation::tree() as $nav)
                 <x-navigation :navigation="$nav"></x-navigation>
             @endforeach
-            
             <li>
                 <a href="#">
                     <i class="fa fa-info-circle"></i> <span>About</span>

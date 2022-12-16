@@ -10,13 +10,18 @@
         <!-- Home tab content -->
         <div class="tab-pane" id="control-sidebar-home-tab">
             
-
         </div>
         <!-- /.tab-pane -->
 
         <!-- Settings tab content -->
         <div class="tab-pane" id="control-sidebar-settings-tab">
-            
+            <ul class="sidebar-menu" data-widget="tree">
+                <li>
+                    <a href="{{ route('design') }}">
+                        <i class="fa fa-flask"></i> <span>Design</span>
+                    </a>
+                </li>
+            </ul>
         </div>
         <!-- /.tab-pane -->
     </div>

@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes(['register' => false, 'reset' => false]);
-
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
-Route::get('/hack', function(){
-    return view('hack');
+Route::group([
+    'middleware' => 'auth'
+], function(){
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/design', [\App\Http\Controllers\DesignController::class, 'index'])->name('design');
+    Route::post('/design/upload', [\App\Http\Controllers\DesignController::class, 'upload'])->name('design.upload');
+    Route::get('/design/{id}/workbench', [\App\Http\Controllers\DesignController::class, 'workbench'])->name('design.workbench');
 });
