@@ -34,32 +34,26 @@ export default {
             this.scadavis.enableTools(false, true);
             this.scadavis.hideWatermark()
             this.tags = this.scadavis.getTagsList().split(",")
-             // set zero tags inital value
-            this.tags.forEach(tag => {
+            cothis.tags.forEach(tag => {
                 this.scadavis.setValue(tag, 0);
             });
             this.resize()
         },
         dataInit() {
-            //set delay interval data
-        let _this = this
-        setInterval(function(){
-            _this.tags.forEach(tag => {
-                _this.scadavis.setValue(tag, Math.random() * 100);
-            });
-            _this.animate()
-        }, 1000);
+            let _this = this
+            setInterval(function(){
+                _this.tags.forEach(tag => {
+                    _this.scadavis.setValue(tag, Math.random() * 100);
+                });
+                _this.animate()
+            }, 1000);
         },
         animate() {
             for(var j=1; j <=3; j++) {
                 var ctr_01 = this.rotate
                 var amp = 'amp_dig' + j;
                 if(this.scadavis.getValue(amp) > 0) { 
-                    if(ctr_01 < 4) {
-                        ctr_01++;
-                    }else{
-                        ctr_01 = 1;
-                    }
+                    ctr_01 = (ctr_01 < 4)? ctr_01 + 1 : 1;
                     for(var i=1; i <= 4; i++) {
                         var val = (ctr_01 == i)? 1: 0;
                         var n = 'agitator_d'+j+'_'+i;

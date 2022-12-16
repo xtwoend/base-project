@@ -140,15 +140,15 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.2319126"
-     inkscape:cx="513.02341"
-     inkscape:cy="216.33028"
+     inkscape:zoom="2.0818557"
+     inkscape:cx="399.40329"
+     inkscape:cy="256.26176"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1636"
+     inkscape:window-width="1635"
      inkscape:window-height="997"
-     inkscape:window-x="44"
+     inkscape:window-x="45"
      inkscape:window-y="25"
      borderlayer="true"
      showguides="false"
@@ -295,7 +295,7 @@
        width="4.1814103"
        height="100.0834"
        x="564.76685"
-       y="-157.87555"
+       y="-149.87555"
        inkscape:label="{&quot;attr&quot;:&quot;bar&quot;,&quot;max&quot;:100,&quot;min&quot;:0,&quot;tag&quot;:&quot;temp_dig2&quot;}"
        transform="matrix(0.98930411,0.1458677,0,-1,0,0)" />
     <ellipse
@@ -1519,8 +1519,8 @@
        id="rect4307-16-8-1-9"
        width="81.021759"
        height="19.946333"
-       x="564.42529"
-       y="211.10812" />
+       x="564.99512"
+       y="211.10809" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:Tahoma;-inkscape-font-specification:Tahoma;text-align:end;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#ffff00;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
