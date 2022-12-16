@@ -12,5 +12,7 @@ const app = createApp({});
 import ExampleComponent from './components/ExampleComponent.vue';
 app.component('example-component', ExampleComponent);
 
+import Workbench from './components/workbench.vue';
+app.component('workbench', Workbench);
 
 app.mount('#app');
