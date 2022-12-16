@@ -29,5 +29,41 @@
             </div>
         </form>
     </div>
+    <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Existing Files</h3>
+        </div>
+        <!-- /.box-header -->
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th style="width: 10px">#</th>
+                    <th>File Name</th>
+                    <th style="width: 40px"></th>
+                </tr>
+                
+                @foreach($files as $row)
+                <tr>
+                    <td>{{ $row->id }}</td>
+                    <td>{{ $row->name }}</td>
+                    <td>
+                        <a href="{{ route('design.workbench', $row->id) }}" class="btn btn-xs btn-primary btn-flat">Show</a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <!-- /.box-body -->
+        <div class="box-footer clearfix">
+            {{ $files->links() }}
+            {{-- <ul class="pagination pagination-sm no-margin pull-right">
+                <li><a href="#">«</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">»</a></li>
+            </ul> --}}
+        </div>
+      </div>
 </div>
 @endsection

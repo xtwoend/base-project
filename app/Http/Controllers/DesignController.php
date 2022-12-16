@@ -22,7 +22,8 @@ class DesignController extends Controller
      */
     public function index()
     {
-        return view('design.index');
+        $files = Svg::paginate(20)->withQueryString();
+        return view('design.index', compact('files'));
     }
 
     /**
