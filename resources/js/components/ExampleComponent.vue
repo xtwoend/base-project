@@ -34,7 +34,7 @@ export default {
             this.scadavis.enableTools(false, true);
             this.scadavis.hideWatermark()
             this.tags = this.scadavis.getTagsList().split(",")
-            cothis.tags.forEach(tag => {
+            this.tags.forEach(tag => {
                 this.scadavis.setValue(tag, 0);
             });
             this.resize()
