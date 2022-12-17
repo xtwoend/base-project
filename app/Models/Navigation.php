@@ -34,6 +34,7 @@ class Navigation extends Model
         return static::with(implode('.', array_fill(0, 3, 'children')))
             ->where('parent_id', '=', NULL)
             ->where('hide', false)
+            ->orderBy('order')
             ->get();
     }
 }
