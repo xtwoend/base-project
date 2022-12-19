@@ -39,8 +39,8 @@
                     <label for="parent">Parent</label>
                     <select class="form-control" name="parent_id">
                         <option value="NULL">Parent Navigation</option>
-                        @foreach(\App\Models\Navigation::get() as $parent)
-                        <option value="{{ $parent->id }}">{{ $parent->name }}</option>
+                        @foreach(\App\Models\Navigation::tree() as $parent)
+                        <x-option :option="$parent" />
                         @endforeach
                     </select>
                 </div>

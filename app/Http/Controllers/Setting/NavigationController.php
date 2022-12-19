@@ -27,8 +27,18 @@ class NavigationController extends Controller
             'route' => 'required',
         ]);
 
-        Navigation::create($request->all());
+        $input = $request->all();
+        $input['parent_id'] = $request->parent_id ?: NULL;
 
-        return redirect()->route('setting.navigations');
+        Navigation::create($input);
+
+        return redirect()->route('setting.navigation');
+    }
+
+    public function destroy($id)
+    {
+        $nav = Navigation::findOrFail($id);
+
+        return $nav->delete();
     }
 }
