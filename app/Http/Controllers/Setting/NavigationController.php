@@ -35,6 +35,29 @@ class NavigationController extends Controller
         return redirect()->route('setting.navigation');
     }
 
+    public function edit($id)
+    {
+        $nav = Navigation::findOrFail($id);
+        return view('navigation.edit', compact('nav'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'route' => 'required',
+        ]);
+
+        $input = $request->all();
+        $input['parent_id'] = $request->parent_id ?: NULL;
+
+        $nav = Navigation::find($id);
+        $nav->fill($input);
+        $nav->save();
+
+        return redirect()->route('setting.navigation');
+    }
+
     public function destroy($id)
     {
         $nav = Navigation::findOrFail($id);

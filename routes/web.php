@@ -32,6 +32,8 @@ Route::group([
         Route::get('/navigation', [NavigationController::class,'index'])->name('navigation');
         Route::get('/navigation/create', [NavigationController::class,'create'])->name('navigation.create');
         Route::post('/navigation', [NavigationController::class,'store'])->name('navigation.store');
+        Route::get('/navigation/{id}', [NavigationController::class,'edit'])->name('navigation.edit');
+        Route::put('/navigation/{id}', [NavigationController::class,'update'])->name('navigation.update');
         Route::delete('/navigation/{id}', [NavigationController::class,'destroy'])->name('navigation.destroy');
     });
 });

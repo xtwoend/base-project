@@ -5,7 +5,7 @@
     </span>
     <span class="text"><i class="{{ $navigation->icon }} mr-5"></i> {{ $navigation->name }}</span>
     <div class="tools">
-        <a href="#" class="mr-5"><i class="fa fa-edit"></i></a>
+        <a href="{{ route('setting.navigation.edit', $navigation->id) }}" class="mr-5"><i class="fa fa-edit"></i></a>
         <btn-remove url="{{ route('setting.navigation.destroy', $navigation->id) }}">
             <i class="fa fa-trash-o"></i>
         </btn-remove>
