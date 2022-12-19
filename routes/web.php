@@ -30,5 +30,7 @@ Route::group([
         Route::get('/design/{id}/workbench', [DesignController::class, 'workbench'])->name('design.workbench');
 
         Route::get('/navigation', [NavigationController::class,'index'])->name('navigation');
+        Route::get('/navigation/create', [NavigationController::class,'create'])->name('navigation.create');
+        Route::post('/navigation', [NavigationController::class,'store'])->name('navigation.store');
     });
 });

@@ -16,33 +16,16 @@
             <i class="ion ion-clipboard"></i>
             <h3 class="box-title">Navigations</h3>
         </div>
-        <!-- /.box-header -->
         <div class="box-body">
-            <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-            <ul class="todo-list">
+            <ul class="list">
                 @foreach ($navigations as $nav)
-                <li>
-                    <!-- drag handle -->
-                    <span class="handle">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <i class="fa fa-ellipsis-v"></i>
-                    </span>
-                    <!-- todo text -->
-                    <span class="text">{{ $nav->name }}</span>
-                    <!-- General tools such as edit or delete-->
-                    <div class="tools">
-                        <i class="fa fa-edit"></i>
-                        <i class="fa fa-trash-o"></i>
-                    </div>
-                </li>   
+                    <x-list-item :navigation="$nav"></x-list-item>
                 @endforeach
             </ul>
         </div>
-        <!-- /.box-body -->
         <div class="box-footer clearfix no-border">
-            <button type="button" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</button>
+            <a href="{{ route('setting.navigation.create') }}" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add item</a>
         </div>
     </div>
-    <!-- /.box -->
 </section>
 @endsection

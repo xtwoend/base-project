@@ -1,0 +1,93 @@
+.list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: auto;
+    
+    &.sub-list { 
+        margin-left: 30px !important; 
+    }
+
+    li {
+      border-radius: 2px;
+      padding: 10px;
+      background: #f4f4f4;
+      margin-bottom: 2px;
+      border-left: 2px solid #e6e7e8;
+      color: #444;
+    //   &:last-of-type {
+    //     margin-bottom: 0;
+    //   }
+  
+      > input[type='checkbox'] {
+        margin: 0 10px 0 5px;
+      }
+  
+      .text {
+        display: inline-block;
+        margin-left: 5px;
+        font-weight: 600;
+      }
+  
+      // Time labels
+      .label {
+        margin-left: 10px;
+        font-size: 9px;
+      }
+  
+      // Tools and options box
+      .tools {
+        display: none;
+        float: right;
+        color: #dd4b39;
+        // icons
+        > .fa, > .glyphicon, > .ion {
+          margin-right: 5px;
+          cursor: pointer;
+        }
+  
+      }
+      &:hover .tools {
+        display: inline-block;
+      }
+  
+      &.done {
+        color: #999;
+        .text {
+          text-decoration: line-through;
+          font-weight: 500;
+        }
+  
+        .label {
+          background: #eee !important;
+        }
+      }
+    }
+  
+    // Color varaity
+    .danger {
+      border-left-color: #dd4b39;
+    }
+    // .warning {
+    //   border-left-color: @yellow;
+    // }
+    // .info {
+    //   border-left-color: @aqua;
+    // }
+    // .success {
+    //   border-left-color: @green;
+    // }
+    // .primary {
+    //   border-left-color: @light-blue;
+    // }
+  
+    .handle {
+      display: inline-block;
+      cursor: move;
+      margin: 0 5px;
+    }
+  
+    .mr-5 {
+      margin-right: 5px;
+    }
+}
