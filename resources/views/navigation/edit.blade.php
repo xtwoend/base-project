@@ -39,7 +39,7 @@
                 <div class="form-group">
                     <label for="parent">Parent</label>
                     <select class="form-control" name="parent_id">
-                        <option value="NULL">Parent Navigation</option>
+                        <option value="">Parent Navigation</option>
                         @foreach(\App\Models\Navigation::tree() as $parent)
                         <x-option :option="$parent" :selected="$nav->parent_id" />
                         @endforeach

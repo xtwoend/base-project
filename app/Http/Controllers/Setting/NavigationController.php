@@ -49,7 +49,7 @@ class NavigationController extends Controller
         ]);
 
         $input = $request->all();
-        $input['parent_id'] = $request->parent_id ?: NULL;
+        $input['parent_id'] = $request->parent_id ?: null;
 
         $nav = Navigation::find($id);
         $nav->fill($input);
