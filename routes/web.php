@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Setting\UserController;
 use App\Http\Controllers\Setting\DesignController;
 use App\Http\Controllers\Setting\NavigationController;
 
@@ -37,5 +38,9 @@ Route::group([
         Route::get('/navigation/{id}', [NavigationController::class,'edit'])->name('navigation.edit');
         Route::put('/navigation/{id}', [NavigationController::class,'update'])->name('navigation.update');
         Route::delete('/navigation/{id}', [NavigationController::class,'destroy'])->name('navigation.destroy');
+
+        Route::get('users/data', [UserController::class, 'data'])->name('users.data');
+        Route::resource('users', UserController::class);
+        
     });
 });

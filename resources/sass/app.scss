@@ -1,4 +1,6 @@
+@import "variables.scss";
 @import "list.scss";
+@import "table.scss";
 
 .content-wrapper {
     background-color: #fff !important;
@@ -33,4 +35,8 @@
 .preview {
     width: 120px;
     height: auto;
+}
+
+.txt-red {
+    color: #fb5858;
 }

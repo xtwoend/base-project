@@ -13,6 +13,9 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 app.use(VueSweetalert2);
 
+import Table from './components/table.vue';
+app.component('data-table', Table);
+
 import ExampleComponent from './components/ExampleComponent.vue';
 app.component('example-component', ExampleComponent);
 

@@ -15,7 +15,7 @@ class AdminUserSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::forceFill([
+        (new \App\Models\User)->forceFill([
             'name' => 'Administrator',
             'email' => 'admin@admin.com',
             'password' => Hash::make('admin123'),

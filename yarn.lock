@@ -563,7 +563,14 @@ vue-sweetalert2@^5.0.5:
   dependencies:
     sweetalert2 "11.x"
 
-vue@^3.2.37:
+vue3-easy-data-table@^1.5.24:
+  version "1.5.24"
+  resolved "https://registry.yarnpkg.com/vue3-easy-data-table/-/vue3-easy-data-table-1.5.24.tgz#83b6064372a994d1cd0ecb76471da702955f0cab"
+  integrity sha512-d5k6y+sHsnMTvlociOsHQwtzzj2EmIkXSmRfvVWVxnlhoLc4NaQSQxYPzPBGWRWX9iWqxA0cXYOJTAH3FCcDrw==
+  dependencies:
+    vue "^3.2.45"
+
+vue@^3.2.37, vue@^3.2.45:
   version "3.2.45"
   resolved "https://registry.yarnpkg.com/vue/-/vue-3.2.45.tgz#94a116784447eb7dbd892167784619fef379b3c8"
   integrity sha512-9Nx/Mg2b2xWlXykmCwiTUCWHbWIj53bnkizBxKai1g61f2Xit700A1ljowpTIM11e3uipOeiPcSqnmBg6gyiaA==
