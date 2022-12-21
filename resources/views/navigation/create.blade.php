@@ -26,6 +26,9 @@
                 <div class="form-group">
                     <label for="route">Page</label>
                     <input name="route" type="text" class="form-control" placeholder="/page/sample">
+                    @error('route')
+                        <p class="help-block txt-red">Route is required (note: use # for main menu) </p>
+                    @enderror
                 </div>
                 <div class="form-group">
                     <label for="icon">Icon</label>

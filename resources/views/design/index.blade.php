@@ -39,7 +39,7 @@
                 <tr>
                     <th style="width: 10px">#</th>
                     <th>File Name</th>
-                    <th style="width: 40px"></th>
+                    <th style="width: 100px"></th>
                 </tr>
                 
                 @foreach($files as $row)
@@ -47,6 +47,7 @@
                     <td>{{ $row->id }}</td>
                     <td>{{ $row->name }}</td>
                     <td>
+                        <a href="{{ route('setting.design.workbench', $row->id) }}" class="btn btn-xs btn-primary btn-flat mr-1">Edit</a>
                         <a href="{{ route('setting.design.workbench', $row->id) }}" class="btn btn-xs btn-primary btn-flat">Show</a>
                     </td>
                 </tr>
