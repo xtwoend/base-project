@@ -18,24 +18,62 @@
                 </div>
             </div>
             <div class="col-md-8">
-                <div id="scada-svg" class="scada" ref="cnsvg"></div>
                 <div class="setting">
-                    
+                    <div class="form-group">
+                        <label for="icon">MQTT Server</label>
+                       
+                            <v-select 
+                                label="name" 
+                                v-model="server"
+                                :options="servers">
+                                <template #open-indicator="{ attributes }">
+                                    <span v-bind="attributes">
+                                        <i class="fa fa-angle-down"></i>
+                                    </span>
+                                </template>
+                                <template #option="{name, host, port}">
+                                    {{ name }} ({{ host }}:{{ port }})
+                                </template>
+                                <template #selected-option="{name, host, port}">
+                                    {{ name }} ({{ host }}:{{ port }})
+                                </template>
+                            </v-select>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="icon">Topic</label>
+                        <div class="input-group">
+                            <input type="text" v-model="topic" class="form-control">
+                            <div class="input-group-btn">
+                                <button class="btn btn-success" @click="connect">Connect</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div id="scada-svg" class="scada" ref="cnsvg"></div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import * as Mqtt from 'mqtt/dist/mqtt.min';
+import vSelect from 'vue-select';
+import 'vue-select/dist/vue-select.css';
 export default {
+    components: {vSelect},
     props: {
-        svg: Object
+        svg: Object,
+        servers: Array
     },
     data () {
         return {
             scadavis: null,
-            tags: {}
+            tags: {},
+            server: null,
+            options: {},
+            topic: null,
+            connection: null
         }
     },
     created() {
@@ -69,7 +107,26 @@ export default {
         },
         preview(tag, val) {
             this.scadavis.setValue(tag, val);
-        }
+        },
+        async connect() {
+            let url = `${this.server.host}:${this.server.port}`
+            this.connection = await Mqtt.connect(url, this.options) 
+            let _that = this
+            this.connection.on('connect', function () {
+                _that.connection.subscribe(_that.topic, function (err) {
+                    if (!err) {
+                        console.log('connected')
+                    }
+                })
+            })
+            this.connection.on('message', this.received)
+        },
+        received(topic, message) {
+            let data = JSON.parse(message.toString());
+            for (const tag in data) {
+                this.preview(tag, data[tag]);
+            }
+        },
     }
 }
 </script>

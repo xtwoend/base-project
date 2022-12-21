@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Setting;
 
 use App\Models\Svg;
+use App\Models\Server;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -86,7 +87,7 @@ class DesignController extends Controller
     public function workbench($id, Request $request)
     {
         $svg = Svg::findOrFail($id);
-
-        return view('design.workbench', compact('svg'));
+        $servers = Server::all();
+        return view('design.workbench', compact('svg', 'servers'));
     }
 }

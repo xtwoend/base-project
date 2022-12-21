@@ -12,6 +12,9 @@
     </ol>
 </section>
 <section class="content"> 
-    <workbench :svg="{{ json_encode($svg) }}"></workbench>
+    <workbench 
+        :svg="{{ json_encode($svg) }}" 
+        :servers="{{ json_encode($servers) }}">
+    </workbench>
 </section>
 @endsection
