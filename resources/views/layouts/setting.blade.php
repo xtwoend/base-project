@@ -23,7 +23,7 @@
                 </li>
                 <li>
                     <a href="{{ route('setting.navigation') }}">
-                        <i class="fa fa-clone"></i> <span>Navigation</span>
+                        <i class="fa fa-sitemap"></i> <span>Navigation</span>
                     </a>
                 </li>
             </ul>

@@ -14,7 +14,7 @@ var ScreenViewer_SVGMaxWidth = 3840; // default SVG screen width in pixels
 var ScreenViewer_SVGMaxHeight  = 2160; // default SVG screen height in pixels
 
 var ScreenViewer_Background  = '#DDDDDD'; // background color for Inkscape SAGE SVG screens
-var ScreenViewer_BackgroundSVG = 'black'; // background color for Inkscape SAGE SVG container
+var ScreenViewer_BackgroundSVG = '#fff'; // background color for Inkscape SAGE SVG container
 var ScreenViewer_ToolbarColor = 'none'; // toolbar color
 var ScreenViewer_BarBreakerSwColor = "steelblue"; // color for DJ, SC and bars
 

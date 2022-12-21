@@ -19,6 +19,9 @@
             </div>
             <div class="col-md-8">
                 <div id="scada-svg" class="scada" ref="cnsvg"></div>
+                <div class="setting">
+                    
+                </div>
             </div>
         </div>
     </div>
