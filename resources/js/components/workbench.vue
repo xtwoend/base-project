@@ -5,7 +5,7 @@
         </div>
         <div class="box-body row">
             <div class="col-md-4">
-                <div class="form-group" v-for="(val, tag) in tags">
+                <div class="form-group" v-for="(val, tag) in tags" :key="tag">
                     <label class="col-sm-5 control-label">{{ tag }}</label>
                     <div class="col-sm-7">
                         <div class="input-group">

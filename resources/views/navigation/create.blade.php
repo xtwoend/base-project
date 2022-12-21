@@ -29,7 +29,11 @@
                 </div>
                 <div class="form-group">
                     <label for="icon">Icon</label>
-                    <input name="icon" type="text" class="form-control" placeholder="fa fa-dashboard">
+                    <icon-select 
+                        name="icon" 
+                        :icons="{{ json_encode($icons) }}"
+                    >
+                    </icon-select>
                 </div>
                 <div class="form-group">
                     <label for="icon">Order</label>

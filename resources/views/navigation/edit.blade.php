@@ -30,7 +30,12 @@
                 </div>
                 <div class="form-group">
                     <label for="icon">Icon</label>
-                    <input name="icon" type="text" class="form-control" placeholder="fa fa-dashboard"  value="{{ $nav->icon }}">
+                    <icon-select 
+                        name="icon" 
+                        :icons="{{ json_encode($icons) }}"
+                        value="{{ $nav->icon }}"
+                    >
+                    </icon-select>
                 </div>
                 <div class="form-group">
                     <label for="icon">Order</label>
@@ -41,7 +46,7 @@
                     <select class="form-control" name="parent_id">
                         <option value="">Parent Navigation</option>
                         @foreach(\App\Models\Navigation::tree() as $parent)
-                        <x-option :option="$parent" :selected="$nav->parent_id" />
+                            <x-option :option="$parent" :selected="$nav->parent_id" />
                         @endforeach
                     </select>
                 </div>

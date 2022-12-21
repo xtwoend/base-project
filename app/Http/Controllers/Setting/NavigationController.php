@@ -17,7 +17,8 @@ class NavigationController extends Controller
 
     public function create()
     {
-        return view('navigation.create');
+        $icons = config('icons');
+        return view('navigation.create', compact('icons'));
     }
 
     public function store(Request $request)
@@ -38,7 +39,9 @@ class NavigationController extends Controller
     public function edit($id)
     {
         $nav = Navigation::findOrFail($id);
-        return view('navigation.edit', compact('nav'));
+        $icons = config('icons');
+
+        return view('navigation.edit', compact('nav', 'icons'));
     }
 
     public function update($id, Request $request)
