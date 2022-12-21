@@ -31,6 +31,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'root'
     ];
 
     /**
@@ -41,4 +42,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * permissions navigation
+     */
+    public function permissions()
+    {
+        $this->belongsToMany(Navigation::class, 'navigation_id');
+    }
 }

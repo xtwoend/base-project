@@ -15,10 +15,11 @@ class AdminUserSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::create([
+        \App\Models\User::forceFill([
             'name' => 'Administrator',
             'email' => 'admin@admin.com',
             'password' => Hash::make('admin123'),
-        ]);
+            'root' => 1,
+        ])->save();
     }
 }

@@ -37,4 +37,14 @@ class Navigation extends Model
             ->orderBy('order')
             ->get();
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_id');
+    }
+
+    public function canAccess($userId): bool
+    {
+        return (bool) $this->users()->where('user_id', $userId)->count() > 0;
+    }
 }
