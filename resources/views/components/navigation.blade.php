@@ -1,3 +1,4 @@
+@if($navigation->canAccess(Auth::user()))
 <li class="{{ ! $navigation->children->isEmpty() ? 'treeview': '' }}">
     <a href="{{ $navigation->route }}">
         @if($navigation->icon)
@@ -18,3 +19,4 @@
     </ul>
     @endif
 </li>
+@endif

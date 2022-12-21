@@ -48,6 +48,6 @@ class User extends Authenticatable
      */
     public function permissions()
     {
-        $this->belongsToMany(Navigation::class, 'navigation_id');
+        return $this->belongsToMany(Navigation::class, 'permissions', 'user_id', 'navigation_id');
     }
 }

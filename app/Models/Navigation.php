@@ -40,11 +40,11 @@ class Navigation extends Model
 
     public function users()
     {
-        return $this->belongsToMany(User::class, 'user_id');
+        return $this->belongsToMany(User::class, 'permissions', 'navigation_id', 'user_id');
     }
 
-    public function canAccess($userId): bool
+    public function canAccess($user): bool
     {
-        return (bool) $this->users()->where('user_id', $userId)->count() > 0;
+        return (bool) $this->users()->where('user_id', $user->id)->count() > 0 || $user->root;
     }
 }
