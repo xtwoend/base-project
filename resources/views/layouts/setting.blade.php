@@ -3,7 +3,9 @@
     <!-- Create the tabs -->
     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
         <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
+        @if(Auth::user()->root)
         <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
+        @endif
     </ul>
     <!-- Tab panes -->
     <div class="tab-content">
@@ -14,6 +16,7 @@
         <!-- /.tab-pane -->
 
         <!-- Settings tab content -->
+        @if(Auth::user()->root)
         <div class="tab-pane" id="control-sidebar-settings-tab">
             <ul class="sidebar-menu" data-widget="tree">
                 <li>
@@ -33,6 +36,7 @@
                 </li>
             </ul>
         </div>
+        @endif
         <!-- /.tab-pane -->
     </div>
 </aside>
