@@ -3,12 +3,12 @@
 @section('content')
 <section class="content-header">
     <h1>
-        Add Design Scada
+        Edit Design Scada
     </h1>
     <ol class="breadcrumb">
         <li><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="{{ route('setting.design') }}">Design</a></li>
-        <li class="active">Create</li>
+        <li class="active">Edit</li>
     </ol>
 </section>
 <section class="content"> 
@@ -16,12 +16,13 @@
         <div class="box-header with-border">
             <h3 class="box-title">Upload Design</h3>
         </div>
-        <form role="form" method="POST" action="{{ route('setting.design.upload') }}" enctype="multipart/form-data">
+        <form role="form" method="POST" action="{{ route('setting.design.update', $svg->id) }}" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="box-body">
                 <div class="form-group">
                     <label for="name">Design Name</label>
-                    <input name="name" type="text" class="form-control" id="name" placeholder="exp. dashboard mechine">
+                    <input name="name" type="text" class="form-control" id="name" placeholder="exp. dashboard mechine" value="{{ $svg->name }}">
                     @error('name')
                         <p class="help-block">Name is required</p>
                     @enderror
@@ -32,6 +33,9 @@
                     @error('file')
                         <p class="help-block">Please choice svg file</p>
                     @enderror
+                </div>
+                <div class="svg">
+                    <img src="/{{ $svg->path }}" class="preview"/>
                 </div>
             </div>
             <div class="box-footer">

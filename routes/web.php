@@ -26,7 +26,9 @@ Route::group([
         'as'     => 'setting.'
     ], function(){
         Route::get('/design', [DesignController::class, 'index'])->name('design');
+        Route::get('/design/{id}/edit', [DesignController::class, 'edit'])->name('design.edit');
         Route::post('/design/upload', [DesignController::class, 'upload'])->name('design.upload');
+        Route::put('/design/{id}', [DesignController::class, 'update'])->name('design.update');
         Route::get('/design/{id}/workbench', [DesignController::class, 'workbench'])->name('design.workbench');
 
         Route::get('/navigation', [NavigationController::class,'index'])->name('navigation');

@@ -51,6 +51,35 @@ class DesignController extends Controller
         return redirect()->route('setting.design.workbench', $svg->id);
     }
 
+    public function edit($id)
+    {
+        $svg = Svg::findOrFail($id);
+        $files = Svg::paginate(20)->withQueryString();
+        return view('design.edit', compact('svg','files'));
+    }
+
+    public function update($id, Request $request)
+    {
+        $this->validate($request, [
+            'file' => 'required|mimes:svg|max:2048',
+            'name' => 'required'
+        ]);
+
+        if(! $request->file('file')) {
+            return back()->withInput();
+        }
+
+        $path = $request->file('file')->store('files');
+        
+        $svg = Svg::findOrFail($id);
+        $svg->update([
+            'name' => $request->name,
+            'path' => $path
+        ]);
+
+        return redirect()->route('setting.design.workbench', $svg->id);
+    }
+
     /**
      * workbench
      */
@@ -58,6 +87,6 @@ class DesignController extends Controller
     {
         $svg = Svg::findOrFail($id);
 
-        return view('design/workbench', compact('svg'));
+        return view('design.workbench', compact('svg'));
     }
 }
