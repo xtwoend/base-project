@@ -1,11 +1,17 @@
 {
   "resources/js/app.js": {
-    "file": "assets/app.303fc6ac.js",
+    "file": "assets/app.83243279.js",
     "src": "resources/js/app.js",
     "isEntry": true,
+    "imports": [
+      "_vendor.e234436c.js"
+    ],
     "css": [
-      "assets/app.8bae9f69.css"
+      "assets/app.1665a6ff.css"
     ]
+  },
+  "_vendor.e234436c.js": {
+    "file": "assets/vendor.e234436c.js"
   },
   "resources/sass/app.scss": {
     "file": "assets/app.5d4d4f8f.css",
@@ -13,7 +19,7 @@
     "isEntry": true
   },
   "resources/js/app.css": {
-    "file": "assets/app.8bae9f69.css",
+    "file": "assets/app.1665a6ff.css",
     "src": "resources/js/app.css"
   }
 }

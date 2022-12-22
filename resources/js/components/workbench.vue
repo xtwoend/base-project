@@ -45,7 +45,10 @@
                         <div class="input-group">
                             <input type="text" v-model="topic" class="form-control">
                             <div class="input-group-btn">
-                                <button class="btn btn-success" @click="connect">Connect</button>
+                                <button class="btn btn-primary" :class="{'btn-success': isConnect}" @click="connect">
+                                    <span v-if="isConnect">Connected</span>
+                                    <span v-if="!isConnect">Connect</span>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -73,7 +76,8 @@ export default {
             server: null,
             options: {},
             topic: null,
-            connection: null
+            connection: null,
+            isConnect: false
         }
     },
     created() {
@@ -106,6 +110,7 @@ export default {
             this.scadavis.zoomTo(1.0 * ((svelem.clientWidth < svelem.clientHeight)? svelem.clientWidth/600 : svelem.clientHeight/600) );
         },
         preview(tag, val) {
+            this.tags[tag] = val
             this.scadavis.setValue(tag, val);
         },
         async connect() {
@@ -113,11 +118,18 @@ export default {
             this.connection = await Mqtt.connect(url, this.options) 
             let _that = this
             this.connection.on('connect', function () {
+                _that.isConnect = true;
                 _that.connection.subscribe(_that.topic, function (err) {
                     if (!err) {
                         console.log('connected')
                     }
                 })
+            })
+            this.connection.on('close', function(){
+                tags.forEach(tag => {
+                    this.preview(tag, data[tag]);
+                });
+                this.isConnect = false;
             })
             this.connection.on('message', this.received)
         },
