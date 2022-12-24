@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('protocol')->default('MQTT');
             $table->string('username')->nullable();
             $table->string('password')->nullable();
+            $table->boolean('active')->default(false);
             $table->timestamps();
         });
     }
